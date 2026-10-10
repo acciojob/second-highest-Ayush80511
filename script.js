@@ -1,22 +1,17 @@
-//your JS code here. If required.
 function secondHighest(arr) {
-if (arr.length < 2) {
+if (!arr || arr.length < 2) {
 return -Infinity;
 }
 
-let highest = -Infinity;
-let second = -Infinity;
 
-for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > highest) {
-        second = highest;
-        highest = arr[i];
-    } else if (arr[i] < highest && arr[i] > second) {
-        second = arr[i];
-    }
+let unique = [...new Set(arr)];
+
+if (unique.length < 2) {
+    return -Infinity;
 }
 
-return second;
+unique.sort((a, b) => b - a);
+
 
 
 }
