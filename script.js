@@ -1,19 +1,14 @@
 function secondHighest(arr) {
-let highest = -Infinity;
-let second = -Infinity;
+let unique = [...new Set(arr)];
 
-for (let i = 0; i < arr.length; i++) {
-    let num = arr[i];
 
-    if (num > highest) {
-        second = highest;
-        highest = num;
-    } else if (num < highest && num > second) {
-        second = num;
-    }
+if (unique.length < 2) {
+    return -Infinity;
 }
 
-return second;
+unique.sort((a, b) => b - a);
+
+return unique[1];
 
 
 }
